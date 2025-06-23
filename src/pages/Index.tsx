@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -8,7 +7,7 @@ import { Label } from '@/components/ui/label';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
-import { Bath, Beaker, Droplets, Package, Lotus, Moon, Sun, Heart } from 'lucide-react';
+import { Bath, Beaker, Droplets, Package, Flower, Moon, Sun, Heart } from 'lucide-react';
 
 // SAP Values for oils with sacred properties
 const SAP_VALUES = {
@@ -152,9 +151,9 @@ const Index = () => {
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="container mx-auto px-4 text-center relative z-10">
           <div className="flex items-center justify-center gap-4 mb-6">
-            <Lotus size={56} className="text-orange-100 animate-pulse" />
+            <Flower size={56} className="text-orange-100 animate-pulse" />
             <h1 className="text-6xl font-bold tracking-wide">Aura Sudhi</h1>
-            <Lotus size={56} className="text-orange-100 animate-pulse" />
+            <Flower size={56} className="text-orange-100 animate-pulse" />
           </div>
           <p className="text-2xl text-orange-100 mb-2">आत्मा शुद्धि - Cleansing the Soul's Energy Field</p>
           <p className="text-lg text-orange-200">Sacred Ayurvedic Soap Alchemy for Yogis</p>
@@ -179,7 +178,7 @@ const Index = () => {
         <Tabs defaultValue="sacred-recipes" className="w-full">
           <TabsList className="grid w-full grid-cols-4 mb-8">
             <TabsTrigger value="sacred-recipes" className="flex items-center gap-2">
-              <Lotus size={20} />
+              <Flower size={20} />
               Sacred Recipes
             </TabsTrigger>
             <TabsTrigger value="calculator" className="flex items-center gap-2">
@@ -212,7 +211,7 @@ const Index = () => {
                   <CardContent className="space-y-4">
                     <div className="bg-gradient-to-r from-yellow-100 to-orange-100 p-3 rounded-lg border border-orange-200">
                       <h4 className="font-medium text-orange-900 mb-2 flex items-center gap-2">
-                        <Lotus size={16} />
+                        <Flower size={16} />
                         Sacred Oils & Proportions:
                       </h4>
                       {Object.entries(recipe.oils).map(([oil, weight]) => (
