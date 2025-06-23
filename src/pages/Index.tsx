@@ -125,12 +125,25 @@ const Index = () => {
     const recipe = SACRED_RECIPES[recipeKey as keyof typeof SACRED_RECIPES];
     const scaleFactor = batchSize[0] / Object.values(recipe.oils).reduce((sum, weight) => sum + weight, 0);
     
+    // Reset all oils to 0 first
+    const resetOils = {
+      olive: 0,
+      coconut: 0,
+      almond: 0,
+      palm: 0,
+      avocado: 0,
+      shea: 0,
+      sesame: 0,
+      neem: 0
+    };
+    
+    // Then apply the recipe oils with scaling
     const scaledOils = Object.entries(recipe.oils).reduce((acc, [oil, weight]) => {
       acc[oil as keyof typeof oils] = Math.round(weight * scaleFactor * 100) / 100;
       return acc;
-    }, {} as typeof oils);
+    }, resetOils);
     
-    setOils({ ...oils, ...scaledOils });
+    setOils(scaledOils);
   };
 
   // Update oil quantity
