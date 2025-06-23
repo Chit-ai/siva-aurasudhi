@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -8,7 +7,7 @@ import { Label } from '@/components/ui/label';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
-import { Soap, Lab, Water, Batch } from 'lucide-react';
+import { Bath, Beaker, Droplets, Package } from 'lucide-react';
 
 // SAP Values for oils
 const SAP_VALUES = {
@@ -114,7 +113,7 @@ const Index = () => {
       <div className="bg-gradient-to-r from-green-600 to-teal-600 text-white py-12">
         <div className="container mx-auto px-4 text-center">
           <div className="flex items-center justify-center gap-3 mb-4">
-            <Soap size={48} className="text-green-100" />
+            <Bath size={48} className="text-green-100" />
             <h1 className="text-5xl font-bold">Aura Sudhi</h1>
           </div>
           <p className="text-xl text-green-100">Cleansing the Body's Subtle Energy Field</p>
@@ -126,15 +125,15 @@ const Index = () => {
         <Tabs defaultValue="calculator" className="w-full">
           <TabsList className="grid w-full grid-cols-3 mb-8">
             <TabsTrigger value="calculator" className="flex items-center gap-2">
-              <Lab size={20} />
+              <Beaker size={20} />
               Calculator
             </TabsTrigger>
             <TabsTrigger value="recipes" className="flex items-center gap-2">
-              <Soap size={20} />
+              <Bath size={20} />
               Recipes
             </TabsTrigger>
             <TabsTrigger value="guide" className="flex items-center gap-2">
-              <Water size={20} />
+              <Droplets size={20} />
               Safety Guide
             </TabsTrigger>
           </TabsList>
@@ -147,7 +146,7 @@ const Index = () => {
                 <Card className="bg-white/70 backdrop-blur">
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2">
-                      <Batch size={24} className="text-green-600" />
+                      <Package size={24} className="text-green-600" />
                       Batch Size: {batchSize[0]}g
                     </CardTitle>
                   </CardHeader>
