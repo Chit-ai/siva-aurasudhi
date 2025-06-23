@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -106,17 +107,26 @@ const Index = () => {
   const calculateSoap = () => {
     const totalOilWeight = Object.values(oils).reduce((sum, weight) => sum + weight, 0);
     
-    let totalLye = 0;
-    Object.entries(oils).forEach(([oil, weight]) => {
-      totalLye += weight * SAP_VALUES[oil as keyof typeof SAP_VALUES];
-    });
+    // If no oils are entered, use the batch size as the total oil weight for demonstration
+    const effectiveOilWeight = totalOilWeight > 0 ? totalOilWeight : batchSize[0];
     
-    const water = (6 / 16) * totalOilWeight;
+    let totalLye = 0;
+    if (totalOilWeight > 0) {
+      // Calculate based on actual oil inputs
+      Object.entries(oils).forEach(([oil, weight]) => {
+        totalLye += weight * SAP_VALUES[oil as keyof typeof SAP_VALUES];
+      });
+    } else {
+      // If no specific oils, use a default SAP calculation based on olive oil
+      totalLye = effectiveOilWeight * SAP_VALUES.olive;
+    }
+    
+    const water = (6 / 16) * effectiveOilWeight;
     
     setResults({
       lye: Math.round(totalLye * 100) / 100,
       water: Math.round(water * 100) / 100,
-      totalOils: Math.round(totalOilWeight * 100) / 100
+      totalOils: Math.round(effectiveOilWeight * 100) / 100
     });
   };
 
