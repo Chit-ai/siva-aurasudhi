@@ -123,7 +123,8 @@ const Index = () => {
   // Load sacred recipe
   const loadSacredRecipe = (recipeKey: string) => {
     const recipe = SACRED_RECIPES[recipeKey as keyof typeof SACRED_RECIPES];
-    const scaleFactor = batchSize[0] / Object.values(recipe.oils).reduce((sum, weight) => sum + weight, 0);
+    const recipeTotal = Object.values(recipe.oils).reduce((sum, weight) => sum + weight, 0);
+    const scaleFactor = batchSize[0] / recipeTotal;
     
     // Reset all oils to 0 first
     const resetOils = {
@@ -152,10 +153,10 @@ const Index = () => {
     setOils(prev => ({ ...prev, [oil]: numValue }));
   };
 
-  // Auto-calculate when oils change
+  // Auto-calculate when oils or batch size change
   useEffect(() => {
     calculateSoap();
-  }, [oils]);
+  }, [oils, batchSize]);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-orange-50 via-yellow-50 to-purple-50">
