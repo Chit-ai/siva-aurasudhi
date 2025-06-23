@@ -8,6 +8,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import { Bath, Beaker, Droplets, Package, Flower, Moon, Sun, Heart, Star, Leaf, Users, Clock, Shield } from 'lucide-react';
+import Navigation from '@/components/Navigation';
+import ScrollToTop from '@/components/ScrollToTop';
 
 // SAP Values for oils with sacred properties
 const SAP_VALUES = {
@@ -169,72 +171,84 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-orange-50 via-yellow-50 to-purple-50">
+      <Navigation />
+      <ScrollToTop />
+      
       {/* Sacred Header */}
-      <div className="bg-gradient-to-r from-orange-600 via-red-500 to-purple-600 text-white py-16 relative overflow-hidden">
+      <div id="hero" className="bg-gradient-to-r from-orange-600 via-red-500 to-purple-600 text-white py-24 mt-16 relative overflow-hidden">
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="container mx-auto px-4 text-center relative z-10">
           <div className="flex items-center justify-center gap-4 mb-6">
             <Flower size={56} className="text-orange-100 animate-pulse" />
-            <h1 className="text-6xl font-bold tracking-wide">Aura Sudhi</h1>
+            <h1 className="text-4xl md:text-6xl font-bold tracking-wide">Aura Sudhi</h1>
             <Flower size={56} className="text-orange-100 animate-pulse" />
           </div>
-          <p className="text-2xl text-orange-100 mb-2">आत्मा शुद्धि - Cleansing the Soul's Energy Field</p>
-          <p className="text-lg text-orange-200">Sacred Ayurvedic Soap Alchemy for Yogis</p>
-          <div className="mt-4 flex items-center justify-center gap-8 text-orange-200">
+          <p className="text-xl md:text-2xl text-orange-100 mb-2">आत्मा शुद्धि - Cleansing the Soul's Energy Field</p>
+          <p className="text-base md:text-lg text-orange-200 mb-8">Sacred Ayurvedic Soap Alchemy for Yogis</p>
+          <div className="flex flex-wrap items-center justify-center gap-4 md:gap-8 text-orange-200">
             <div className="flex items-center gap-2">
               <Sun size={20} />
-              <span>Solar Energy</span>
+              <span className="text-sm md:text-base">Solar Energy</span>
             </div>
             <div className="flex items-center gap-2">
               <Moon size={20} />
-              <span>Lunar Blessings</span>
+              <span className="text-sm md:text-base">Lunar Blessings</span>
             </div>
             <div className="flex items-center gap-2">
               <Heart size={20} />
-              <span>Divine Love</span>
+              <span className="text-sm md:text-base">Divine Love</span>
             </div>
+          </div>
+          <div className="mt-8">
+            <Button 
+              onClick={() => document.getElementById('tabs')?.scrollIntoView({ behavior: 'smooth' })}
+              className="bg-white/20 hover:bg-white/30 text-white border-white/30 backdrop-blur-sm px-8 py-3 text-lg"
+              variant="outline"
+            >
+              Begin Your Sacred Journey
+            </Button>
           </div>
         </div>
       </div>
 
       {/* Sacred Gallery Section */}
-      <div className="container mx-auto px-4 py-16">
+      <div id="gallery" className="container mx-auto px-4 py-16">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-orange-900 mb-4">Sacred Soap Making Journey</h2>
-          <p className="text-lg text-orange-700 max-w-3xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-orange-900 mb-4">Sacred Soap Making Journey</h2>
+          <p className="text-base md:text-lg text-orange-700 max-w-3xl mx-auto">
             Experience the divine art of Ayurvedic soap crafting through ancient wisdom and modern mindfulness
           </p>
         </div>
         
-        <div className="grid md:grid-cols-3 gap-8 mb-16">
-          <Card className="bg-white/80 backdrop-blur border-orange-200 overflow-hidden">
-            <div className="h-64 bg-cover bg-center" style={{backgroundImage: 'url(https://images.unsplash.com/photo-1523712999610-f77fbcfc3843)'}}>
+        <div className="grid md:grid-cols-3 gap-6 md:gap-8 mb-16">
+          <Card className="bg-white/80 backdrop-blur border-orange-200 overflow-hidden hover:shadow-xl transition-all duration-300">
+            <div className="h-48 md:h-64 bg-cover bg-center" style={{backgroundImage: 'url(https://images.unsplash.com/photo-1523712999610-f77fbcfc3843)'}}>
               <div className="h-full bg-gradient-to-t from-black/50 to-transparent flex items-end">
-                <div className="p-6 text-white">
-                  <h3 className="text-xl font-bold mb-2">Sacred Forest Ingredients</h3>
-                  <p className="text-sm opacity-90">Harvested with reverence from nature's temple</p>
+                <div className="p-4 md:p-6 text-white">
+                  <h3 className="text-lg md:text-xl font-bold mb-2">Sacred Forest Ingredients</h3>
+                  <p className="text-xs md:text-sm opacity-90">Harvested with reverence from nature's temple</p>
                 </div>
               </div>
             </div>
           </Card>
           
-          <Card className="bg-white/80 backdrop-blur border-orange-200 overflow-hidden">
-            <div className="h-64 bg-cover bg-center" style={{backgroundImage: 'url(https://images.unsplash.com/photo-1500375592092-40eb2168fd21)'}}>
+          <Card className="bg-white/80 backdrop-blur border-orange-200 overflow-hidden hover:shadow-xl transition-all duration-300">
+            <div className="h-48 md:h-64 bg-cover bg-center" style={{backgroundImage: 'url(https://images.unsplash.com/photo-1500375592092-40eb2168fd21)'}}>
               <div className="h-full bg-gradient-to-t from-black/50 to-transparent flex items-end">
-                <div className="p-6 text-white">
-                  <h3 className="text-xl font-bold mb-2">Ocean's Purifying Energy</h3>
-                  <p className="text-sm opacity-90">Infused with the cleansing power of water element</p>
+                <div className="p-4 md:p-6 text-white">
+                  <h3 className="text-lg md:text-xl font-bold mb-2">Ocean's Purifying Energy</h3>
+                  <p className="text-xs md:text-sm opacity-90">Infused with the cleansing power of water element</p>
                 </div>
               </div>
             </div>
           </Card>
           
-          <Card className="bg-white/80 backdrop-blur border-orange-200 overflow-hidden">
-            <div className="h-64 bg-cover bg-center" style={{backgroundImage: 'url(https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05)'}}>
+          <Card className="bg-white/80 backdrop-blur border-orange-200 overflow-hidden hover:shadow-xl transition-all duration-300">
+            <div className="h-48 md:h-64 bg-cover bg-center" style={{backgroundImage: 'url(https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05)'}}>
               <div className="h-full bg-gradient-to-t from-black/50 to-transparent flex items-end">
-                <div className="p-6 text-white">
-                  <h3 className="text-xl font-bold mb-2">Mountain Meditation</h3>
-                  <p className="text-sm opacity-90">Crafted in harmony with earth's highest vibrations</p>
+                <div className="p-4 md:p-6 text-white">
+                  <h3 className="text-lg md:text-xl font-bold mb-2">Mountain Meditation</h3>
+                  <p className="text-xs md:text-sm opacity-90">Crafted in harmony with earth's highest vibrations</p>
                 </div>
               </div>
             </div>
@@ -242,90 +256,90 @@ const Index = () => {
         </div>
 
         {/* Sacred Process Steps */}
-        <div className="mb-16">
-          <h2 className="text-3xl font-bold text-orange-900 text-center mb-12">The Sacred Process</h2>
-          <div className="grid lg:grid-cols-4 gap-8">
-            <Card className="bg-gradient-to-br from-yellow-50 to-orange-50 border-orange-200 text-center">
-              <CardContent className="p-6">
-                <div className="w-20 h-20 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Sun size={40} className="text-orange-600" />
+        <div id="process" className="mb-16">
+          <h2 className="text-2xl md:text-3xl font-bold text-orange-900 text-center mb-12">The Sacred Process</h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+            <Card className="bg-gradient-to-br from-yellow-50 to-orange-50 border-orange-200 text-center hover:shadow-lg transition-all duration-300">
+              <CardContent className="p-4 md:p-6">
+                <div className="w-16 h-16 md:w-20 md:h-20 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Sun size={32} className="text-orange-600" />
                 </div>
-                <h3 className="text-lg font-bold text-orange-900 mb-2">1. Dawn Preparation</h3>
-                <p className="text-sm text-orange-700">Begin at sunrise with pranayama breathing and intention setting</p>
+                <h3 className="text-base md:text-lg font-bold text-orange-900 mb-2">1. Dawn Preparation</h3>
+                <p className="text-xs md:text-sm text-orange-700">Begin at sunrise with pranayama breathing and intention setting</p>
               </CardContent>
             </Card>
             
-            <Card className="bg-gradient-to-br from-green-50 to-teal-50 border-green-200 text-center">
-              <CardContent className="p-6">
-                <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Leaf size={40} className="text-green-600" />
+            <Card className="bg-gradient-to-br from-green-50 to-teal-50 border-green-200 text-center hover:shadow-lg transition-all duration-300">
+              <CardContent className="p-4 md:p-6">
+                <div className="w-16 h-16 md:w-20 md:h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Leaf size={32} className="text-green-600" />
                 </div>
-                <h3 className="text-lg font-bold text-green-900 mb-2">2. Sacred Mixing</h3>
-                <p className="text-sm text-green-700">Blend oils with mindful awareness and healing mantras</p>
+                <h3 className="text-base md:text-lg font-bold text-green-900 mb-2">2. Sacred Mixing</h3>
+                <p className="text-xs md:text-sm text-green-700">Blend oils with mindful awareness and healing mantras</p>
               </CardContent>
             </Card>
             
-            <Card className="bg-gradient-to-br from-purple-50 to-indigo-50 border-purple-200 text-center">
-              <CardContent className="p-6">
-                <div className="w-20 h-20 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Heart size={40} className="text-purple-600" />
+            <Card className="bg-gradient-to-br from-purple-50 to-indigo-50 border-purple-200 text-center hover:shadow-lg transition-all duration-300">
+              <CardContent className="p-4 md:p-6">
+                <div className="w-16 h-16 md:w-20 md:h-20 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Heart size={32} className="text-purple-600" />
                 </div>
-                <h3 className="text-lg font-bold text-purple-900 mb-2">3. Love Infusion</h3>
-                <p className="text-sm text-purple-700">Pour divine love energy into every molecular bond</p>
+                <h3 className="text-base md:text-lg font-bold text-purple-900 mb-2">3. Love Infusion</h3>
+                <p className="text-xs md:text-sm text-purple-700">Pour divine love energy into every molecular bond</p>
               </CardContent>
             </Card>
             
-            <Card className="bg-gradient-to-br from-blue-50 to-cyan-50 border-blue-200 text-center">
-              <CardContent className="p-6">
-                <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Moon size={40} className="text-blue-600" />
+            <Card className="bg-gradient-to-br from-blue-50 to-cyan-50 border-blue-200 text-center hover:shadow-lg transition-all duration-300">
+              <CardContent className="p-4 md:p-6">
+                <div className="w-16 h-16 md:w-20 md:h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Moon size={32} className="text-blue-600" />
                 </div>
-                <h3 className="text-lg font-bold text-blue-900 mb-2">4. Lunar Curing</h3>
-                <p className="text-sm text-blue-700">Allow 28 days of moon cycles for perfect saponification</p>
+                <h3 className="text-base md:text-lg font-bold text-blue-900 mb-2">4. Lunar Curing</h3>
+                <p className="text-xs md:text-sm text-blue-700">Allow 28 days of moon cycles for perfect saponification</p>
               </CardContent>
             </Card>
           </div>
         </div>
 
         {/* Featured Sacred Ingredients */}
-        <div className="mb-16">
-          <h2 className="text-3xl font-bold text-orange-900 text-center mb-12">Sacred Ingredients from Mother Earth</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <Card className="bg-white/80 backdrop-blur border-orange-200 overflow-hidden">
-              <div className="h-32 bg-cover bg-center" style={{backgroundImage: 'url(https://images.unsplash.com/photo-1506744038136-46273834b3fb)'}}>
+        <div id="ingredients" className="mb-16">
+          <h2 className="text-2xl md:text-3xl font-bold text-orange-900 text-center mb-12">Sacred Ingredients from Mother Earth</h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <Card className="bg-white/80 backdrop-blur border-orange-200 overflow-hidden hover:shadow-lg transition-all duration-300">
+              <div className="h-24 md:h-32 bg-cover bg-center" style={{backgroundImage: 'url(https://images.unsplash.com/photo-1506744038136-46273834b3fb)'}}>
               </div>
-              <CardContent className="p-4">
-                <h4 className="font-bold text-orange-900 mb-1">Sacred Olive</h4>
+              <CardContent className="p-3 md:p-4">
+                <h4 className="font-bold text-orange-900 mb-1 text-sm md:text-base">Sacred Olive</h4>
                 <p className="text-xs text-orange-700">Ancient wisdom of the Mediterranean</p>
                 <Badge variant="outline" className="mt-2 text-xs">Heart Chakra</Badge>
               </CardContent>
             </Card>
             
-            <Card className="bg-white/80 backdrop-blur border-orange-200 overflow-hidden">
-              <div className="h-32 bg-cover bg-center" style={{backgroundImage: 'url(https://images.unsplash.com/photo-1501854140801-50d01698950b)'}}>
+            <Card className="bg-white/80 backdrop-blur border-orange-200 overflow-hidden hover:shadow-lg transition-all duration-300">
+              <div className="h-24 md:h-32 bg-cover bg-center" style={{backgroundImage: 'url(https://images.unsplash.com/photo-1501854140801-50d01698950b)'}}>
               </div>
-              <CardContent className="p-4">
-                <h4 className="font-bold text-orange-900 mb-1">Himalayan Herbs</h4>
+              <CardContent className="p-3 md:p-4">
+                <h4 className="font-bold text-orange-900 mb-1 text-sm md:text-base">Himalayan Herbs</h4>
                 <p className="text-xs text-orange-700">Blessed by mountain spirits</p>
                 <Badge variant="outline" className="mt-2 text-xs">Crown Chakra</Badge>
               </CardContent>
             </Card>
             
-            <Card className="bg-white/80 backdrop-blur border-orange-200 overflow-hidden">
-              <div className="h-32 bg-cover bg-center" style={{backgroundImage: 'url(https://images.unsplash.com/photo-1500673922987-e212871fec22)'}}>
+            <Card className="bg-white/80 backdrop-blur border-orange-200 overflow-hidden hover:shadow-lg transition-all duration-300">
+              <div className="h-24 md:h-32 bg-cover bg-center" style={{backgroundImage: 'url(https://images.unsplash.com/photo-1500673922987-e212871fec22)'}}>
               </div>
-              <CardContent className="p-4">
-                <h4 className="font-bold text-orange-900 mb-1">Sacred Neem</h4>
+              <CardContent className="p-3 md:p-4">
+                <h4 className="font-bold text-orange-900 mb-1 text-sm md:text-base">Sacred Neem</h4>
                 <p className="text-xs text-orange-700">Divine protection and purification</p>
                 <Badge variant="outline" className="mt-2 text-xs">Root Chakra</Badge>
               </CardContent>
             </Card>
             
-            <Card className="bg-white/80 backdrop-blur border-orange-200 overflow-hidden">
-              <div className="h-32 bg-cover bg-center" style={{backgroundImage: 'url(https://images.unsplash.com/photo-1615729947596-a598e5de0ab3)'}}>
+            <Card className="bg-white/80 backdrop-blur border-orange-200 overflow-hidden hover:shadow-lg transition-all duration-300">
+              <div className="h-24 md:h-32 bg-cover bg-center" style={{backgroundImage: 'url(https://images.unsplash.com/photo-1615729947596-a598e5de0ab3)'}}>
               </div>
-              <CardContent className="p-4">
-                <h4 className="font-bold text-orange-900 mb-1">Lotus Essence</h4>
+              <CardContent className="p-3 md:p-4">
+                <h4 className="font-bold text-orange-900 mb-1 text-sm md:text-base">Lotus Essence</h4>
                 <p className="text-xs text-orange-700">Symbol of spiritual awakening</p>
                 <Badge variant="outline" className="mt-2 text-xs">Thousand Petals</Badge>
               </CardContent>
@@ -431,26 +445,32 @@ const Index = () => {
         </div>
       </div>
 
-      <div className="container mx-auto px-4 py-8">
+      <div id="tabs" className="container mx-auto px-4 py-8">
         <Tabs defaultValue="sacred-recipes" className="w-full">
-          <TabsList className="grid w-full grid-cols-4 mb-8">
-            <TabsTrigger value="sacred-recipes" className="flex items-center gap-2">
-              <Flower size={20} />
-              Sacred Recipes
-            </TabsTrigger>
-            <TabsTrigger value="calculator" className="flex items-center gap-2">
-              <Beaker size={20} />
-              Calculator
-            </TabsTrigger>
-            <TabsTrigger value="meditation" className="flex items-center gap-2">
-              <Heart size={20} />
-              Meditation
-            </TabsTrigger>
-            <TabsTrigger value="wisdom" className="flex items-center gap-2">
-              <Droplets size={20} />
-              Ancient Wisdom
-            </TabsTrigger>
-          </TabsList>
+          <div className="flex justify-center mb-8">
+            <TabsList className="grid w-full max-w-4xl grid-cols-2 md:grid-cols-4">
+              <TabsTrigger value="sacred-recipes" className="flex items-center gap-2 text-xs md:text-sm">
+                <Flower size={16} />
+                <span className="hidden sm:inline">Sacred Recipes</span>
+                <span className="sm:hidden">Recipes</span>
+              </TabsTrigger>
+              <TabsTrigger value="calculator" className="flex items-center gap-2 text-xs md:text-sm">
+                <Beaker size={16} />
+                <span className="hidden sm:inline">Calculator</span>
+                <span className="sm:hidden">Calc</span>
+              </TabsTrigger>
+              <TabsTrigger value="meditation" className="flex items-center gap-2 text-xs md:text-sm">
+                <Heart size={16} />
+                <span className="hidden sm:inline">Meditation</span>
+                <span className="sm:hidden">Med</span>
+              </TabsTrigger>
+              <TabsTrigger value="wisdom" className="flex items-center gap-2 text-xs md:text-sm">
+                <Droplets size={16} />
+                <span className="hidden sm:inline">Ancient Wisdom</span>
+                <span className="sm:hidden">Wisdom</span>
+              </TabsTrigger>
+            </TabsList>
+          </div>
 
           <TabsContent value="sacred-recipes">
             <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-6">
