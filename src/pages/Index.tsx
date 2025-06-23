@@ -553,6 +553,18 @@ const Index = () => {
                         </div>
                       ))}
                     </div>
+                    
+                    {/* Manifest Button */}
+                    <div className="mt-6 text-center">
+                      <Button 
+                        onClick={calculateSoap}
+                        className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white px-8 py-3 text-lg font-medium"
+                        size="lg"
+                      >
+                        <Beaker size={20} className="mr-2" />
+                        Manifest Sacred Soap
+                      </Button>
+                    </div>
                   </CardContent>
                 </Card>
               </div>
